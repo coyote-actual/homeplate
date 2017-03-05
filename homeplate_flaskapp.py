@@ -19,11 +19,11 @@ def post():
 
 	print("For debuging:" + jsonify(json))
 
-    if json['token'] == tokenKey:
-    	if json['device'] == 'VERIZON':
-    		rivetIR.VERIZON(json['command'])
+	if json['token'] == tokenKey:
+		if json['device'] == 'VERIZON':
+			rivetIR.VERIZON(json['command'])
 
-    else:
-    	print('Invalid Token')
+	else:
+		print('Invalid Token')
 
 	return jsonify(json)
