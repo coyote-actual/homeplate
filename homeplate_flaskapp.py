@@ -1,7 +1,7 @@
 ### This is the main homeplate app that will control many functions of my personal home automation system ###
 ###              For use with Flask and Python          Joseph Pistono - 2017 - Black Fleet Inc.		  ###
 
-
+import time
 from flask import Flask, request, jsonify
 import rivetIR
 
@@ -26,4 +26,5 @@ def post():
 	else:
 		print('Invalid Token')
 
+	time.sleep(2)
 	return jsonify(json)
