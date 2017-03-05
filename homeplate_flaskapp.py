@@ -13,6 +13,7 @@ tokenKey = 'BLK862702'
 @app.route('/post', methods = ['POST'])
 def post():
 	# Get the parsed contents of the form data
+
 	json = request.json
 	print("recieved request")
 
