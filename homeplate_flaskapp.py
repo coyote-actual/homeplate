@@ -12,8 +12,10 @@ tokenKey = 'BLK862702'
 
 @app.route('/post', methods = ['POST'])
 def post():
-    # Get the parsed contents of the form data
-    json = request.json
+	# Get the parsed contents of the form data
+	print("recieved request")
+	json = request.json
+	return jsonify(json)
 '''
     if json['token'] == tokenKey:
 
@@ -23,4 +25,3 @@ def post():
     else:
     	print('Invalid Token')
 '''
-    return jsonify(json)
