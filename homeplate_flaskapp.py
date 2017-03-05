@@ -15,6 +15,7 @@ def post():
 	# Get the parsed contents of the form data
 	print("recieved request")
 	json = request.json
+	print(jsonify(json))
 	return jsonify(json)
 '''
     if json['token'] == tokenKey:
