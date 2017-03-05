@@ -17,7 +17,7 @@ def post():
 	json = request.json
 	print("recieved request")
 
-	print("For debuging:" + jsonify(json))
+	print("For debuging:" + json)
 
 	if json['token'] == tokenKey:
 		if json['device'] == 'VERIZON':
