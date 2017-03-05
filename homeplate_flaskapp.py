@@ -13,16 +13,16 @@ tokenKey = 'BLK862702'
 @app.route('/post', methods = ['POST'])
 def post():
 	# Get the parsed contents of the form data
-	print("recieved request")
 	json = request.json
-	print(jsonify(json))
-	return jsonify(json)
-'''
-    if json['token'] == tokenKey:
+	print("recieved request")
 
+	print("For debuging:" + jsonify(json))
+
+    if json['token'] == tokenKey:
     	if json['device'] == 'VERIZON':
     		rivetIR.VERIZON(json['command'])
 
     else:
     	print('Invalid Token')
-'''
+
+	return jsonify(json)
