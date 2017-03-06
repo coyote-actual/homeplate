@@ -4,9 +4,10 @@
 import time
 from flask import Flask, request, jsonify
 import rivetIR
-import tokenKey
+import tokenKey as tK
 
 app = Flask(__name__)
+tokenKey = tK.setToken()
 
 
 @app.route('/post', methods = ['POST'])
