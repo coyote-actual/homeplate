@@ -13,8 +13,14 @@ def VERIZON(command):
 
 		def vzCipher(command):
 			return {
-				"test":"TV_POWER",
-				"test two":"TV_POWER_OFF"
+				"menu":"MENU",
+				"guide":"GUIDE",
+				"info":"INFO",
+				"up arrow":"CIRCLE_UP",
+				"right arrow":"CIRCLE_RIGHT",
+				"down arrow":"CIRCLE_DOWN",
+				"left arrow":"CIRCLE_LEFT",
+				"ok button":"OK_BTN"
 			}[command]
 
 		print(vzCipher(command))
