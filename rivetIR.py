@@ -3,13 +3,21 @@ from py_irsend import irsend
 def VERIZON(command):
 	print("This is what was passed to irsend:" + command)
 
-	def cipher(command):
-		return {
-			"on":"TV_POWER",
-			"off":"TV_POWER_OFF"
-		}[command]
+	remote
 
-	print(cipher(command))
+	if (command == 'on' | command == 'off'):
+		irsend.send_once(remote, ['TV_POWER'])
+		irsend.send_once(remote, ['STB_POWER'])
+
+	else:
+
+		def vzCipher(command):
+			return {
+				"test":"TV_POWER",
+				"test two":"TV_POWER_OFF"
+			}[command]
+
+		print(cipher(command))
 
 
 
