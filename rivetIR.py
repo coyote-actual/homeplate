@@ -17,7 +17,7 @@ def VERIZON(command):
 				"test two":"TV_POWER_OFF"
 			}[command]
 
-		print(cipher(command))
+		print(vzCipher(command))
 
 
 
