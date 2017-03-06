@@ -49,7 +49,7 @@ def VERIZON(command):
 			print(vzCmdCipher(command))
 
 			#IRSEND the command!
-			cleanedCmd = '[\'' + vzCmdCipher(command) + '\']'
+			cleanedCmd = vzCmdCipher(command)
 			irsend.send_once(remote,cleanedCmd)
 
 		except:
