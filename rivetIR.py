@@ -5,7 +5,7 @@ def VERIZON(command):
 
 	remote = 'VERIZON_STB'
 
-	if command == 'on' | command == 'off':
+	if command in ['on','off']:
 		irsend.send_once(remote, ['TV_POWER'])
 		irsend.send_once(remote, ['STB_POWER'])
 
