@@ -3,15 +3,13 @@ from py_irsend import irsend
 def VERIZON(command):
 	print("This is what was passed to irsend:" + command)
 
-	print(cipher(command))
-
-
 	def cipher(command):
 		return {
 			"on":"TV_POWER",
 			"off":"TV_POWER_OFF"
 		}[command]
 
+	print(cipher(command))
 
 
 
