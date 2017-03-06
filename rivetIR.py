@@ -3,7 +3,7 @@ from py_irsend import irsend
 def VERIZON(command):
 	print("This is what was passed to irsend:" + command)
 
-	remote
+	remote = 'VERIZON_STB'
 
 	if (command == 'on' | command == 'off'):
 		irsend.send_once(remote, ['TV_POWER'])
