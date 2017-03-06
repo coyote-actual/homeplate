@@ -10,20 +10,24 @@ def VERIZON(command):
 		irsend.send_once(remote, ['STB_POWER'])
 
 	else:
+		try:
+			def vzCipher(command):
+				return {
+					"menu":"MENU",
+					"guide":"GUIDE",
+					"info":"INFO",
+					"up arrow":"CIRCLE_UP",
+					"right arrow":"CIRCLE_RIGHT",
+					"down arrow":"CIRCLE_DOWN",
+					"left arrow":"CIRCLE_LEFT",
+					"ok button":"OK_BTN"
+				}[command]
 
-		def vzCipher(command):
-			return {
-				"menu":"MENU",
-				"guide":"GUIDE",
-				"info":"INFO",
-				"up arrow":"CIRCLE_UP",
-				"right arrow":"CIRCLE_RIGHT",
-				"down arrow":"CIRCLE_DOWN",
-				"left arrow":"CIRCLE_LEFT",
-				"ok button":"OK_BTN"
-			}[command]
+			print(vzCipher(command))
 
-		print(vzCipher(command))
+		except:
+			print("Command not found!")
+
 
 
 
