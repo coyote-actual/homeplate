@@ -12,6 +12,19 @@ def VERIZON(command):
 	else:
 		try:
 			def vzCipher(command):
+				cmdDict = {
+					"menu":"MENU",
+					"guide":"GUIDE",
+					"info":"INFO",
+					"up arrow":"CIRCLE_UP",
+					"right arrow":"CIRCLE_RIGHT",
+					"down arrow":"CIRCLE_DOWN",
+					"left arrow":"CIRCLE_LEFT",
+					"ok button":"OK_BTN"
+				}
+
+				return cmdDict[command.lower()]
+				'''
 				return {
 					"menu":"MENU",
 					"guide":"GUIDE",
@@ -22,6 +35,7 @@ def VERIZON(command):
 					"left arrow":"CIRCLE_LEFT",
 					"ok button":"OK_BTN"
 				}[command]
+				'''
 
 			print(vzCipher(command))
 
