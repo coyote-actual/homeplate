@@ -21,7 +21,7 @@ def post():
 
 	if json['token'] == tokenKey:
 		if json['device'] == 'VERIZON':
-			rivetIR.VERIZON(json['command'])
+			print(rivetIR.VERIZON(json['command']))
 
 	else:
 		print('Invalid Token')
