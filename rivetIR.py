@@ -9,8 +9,8 @@ def VERIZON(command):
 		irsend.send_once(remote, ['TV_POWER'])
 		irsend.send_once(remote, ['STB_POWER'])
 
-	elif command.lower() == 'channel':
-		print command
+	elif command.lower().find('channel') !=-1:
+		print command + 'testing for debug...'
 
 	elif:
 		try:
