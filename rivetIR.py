@@ -38,6 +38,8 @@ def VERIZON(command):
 					irsend.send_once(remote, ['BTN_'+chan])
 					sleep(.05)
 				irsend.send_once(remote, ['ENTER_BTN'])
+			except:
+				print("Channel not found!")
 
 	else:
 		try:
