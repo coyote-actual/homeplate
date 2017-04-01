@@ -9,7 +9,10 @@ def VERIZON(command):
 		irsend.send_once(remote, ['TV_POWER'])
 		irsend.send_once(remote, ['STB_POWER'])
 
-	else:
+	elif command.lower() == 'channel':
+		print command
+
+	elif:
 		try:
 			def vzCmdCipher(command):
 				cmdDict = {
