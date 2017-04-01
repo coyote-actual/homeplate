@@ -12,7 +12,7 @@ def VERIZON(command):
 	elif command.lower().find('channel') !=-1:
 		print(command + 'testing for debug...')
 
-	elif:
+	else:
 		try:
 			def vzCmdCipher(command):
 				cmdDict = {
