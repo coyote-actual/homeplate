@@ -99,7 +99,7 @@ def VERIZON(command):
 					"pip":"PIP_BTN",
 					"enter button":"ENTER_BTN",
 				}
-
+				print("this is command: "+command)
 				if any(char.isdigit() for char in command):
 					shaveDigit = command.split().remove(command.split()[-1])
 					print("shaveDigit: "+shaveDigit)
