@@ -106,6 +106,7 @@ def VERIZON(command):
 			print(vzCmdCipher(command))
 
 			### this section will run the command x number of times if provided in the voice command
+			print("made it here0")
 			if any(char.isdigit() for char in command):
 				commandSplit = command.split()
 				print("made it here")
