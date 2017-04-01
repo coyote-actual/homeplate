@@ -1,4 +1,5 @@
 from py_irsend import irsend
+from time import sleep
 
 def VERIZON(command):
 	print("This is what was passed to irsend:" + command)
@@ -9,8 +10,12 @@ def VERIZON(command):
 		irsend.send_once(remote, ['TV_POWER'])
 		irsend.send_once(remote, ['STB_POWER'])
 
-	elif command.lower().find('channel') !=-1:
-		print(command + 'testing for debug...')
+	elif command.find('channel') !=-1:
+		channelSplit = command.split()
+		for chan in channelSplit[1]:
+			irsend.send_once(remote, ['BTN_'+chan])
+			sleep(.05)
+		irsend.send_once(remote, ['ENTER_BTN'])
 
 	else:
 		try:
