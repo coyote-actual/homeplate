@@ -101,11 +101,8 @@ def VERIZON(command):
 					"enter button":"ENTER_BTN",
 				}
 				print("this is command: "+command)
-				if (re.search('\d+', command)):
-					shaveDigit = command.split().remove(command.split()[-1])
-					print("shaveDigit: "+shaveDigit)
-					return cmdDict[shaveDigit.lower()]
-
+				if not re.search('\d+', command):
+					return cmdDict[command.lower()]
 				'''
 				if any(char.isdigit() for char in command):
 					shaveDigit = command.split().remove(command.split()[-1])
@@ -113,7 +110,10 @@ def VERIZON(command):
 					return cmdDict[shaveDigit.lower()]
 				'''
 				else:
-					return cmdDict[command.lower()]
+					shaveDigit = command.split().remove(command.split()[-1])
+					print("shaveDigit: "+shaveDigit)
+					return cmdDict[shaveDigit.lower()]
+					
 
 
 			print(vzCmdCipher(command))
