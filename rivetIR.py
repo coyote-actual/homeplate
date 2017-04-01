@@ -1,5 +1,6 @@
 from py_irsend import irsend
 from time import sleep
+import re
 
 def VERIZON(command):
 	print("This is what was passed to irsend:" + command)
@@ -100,10 +101,17 @@ def VERIZON(command):
 					"enter button":"ENTER_BTN",
 				}
 				print("this is command: "+command)
+				if re.search('\d+', command):
+					shaveDigit = command.split().remove(command.split()[-1])
+					print("shaveDigit: "+shaveDigit)
+					return cmdDict[shaveDigit.lower()]
+
+				'''
 				if any(char.isdigit() for char in command):
 					shaveDigit = command.split().remove(command.split()[-1])
 					print("shaveDigit: "+shaveDigit)
 					return cmdDict[shaveDigit.lower()]
+				'''
 				else:
 					return cmdDict[command.lower()]
 
