@@ -10,6 +10,8 @@ def VERIZON(command):
 		irsend.send_once(remote, ['TV_POWER'])
 		irsend.send_once(remote, ['STB_POWER'])
 
+	### THIS SECTION IS FOR CHANNEL CONTROL-----------------------------------------------------------
+
 	elif command.find('channel') !=-1:
 		channelSplit = command.split()
 
@@ -41,6 +43,8 @@ def VERIZON(command):
 			except:
 				print("Channel not found!")
 
+	###-----------------------------------------------------------------------------------------------
+	### THIS SECTION IS FOR INDIVIDUAL REMOTE COMMAND BUTTONS-----------------------------------------
 	else:
 		try:
 			def vzCmdCipher(command):
@@ -72,7 +76,28 @@ def VERIZON(command):
 					"pause":"PAUSE_BTN",
 					"fast forward":"FFWD",
 					"stop":"STOP",
-					"record":"REC"
+					"record":"REC",
+					''' ### these buttons probably are not needed
+					"1 button":"BTN_1",
+					"2 button":"BTN_2",
+					"3 button":"BTN_3",
+					"4 button":"BTN_4",
+					"5 button":"BTN_5",
+					"6 button":"BTN_6",
+					"7 button":"BTN_7",
+					"8 button":"BTN_8",
+					"9 button":"BTN_9",
+					"0 button":"BTN_0",
+					'''
+					"asteric":"ASTERIC_BTN",
+					"hash":"HASH_BTN",
+					"a button":"A_BTN",
+					"b button":"B_BTN",
+					"c button":"C_BTN",
+					"d button":"D_BTN",
+					"input":"AV_INPUT",
+					"pip":"PIP_BTN",
+					"enter button":"ENTER_BTN",
 				}
 
 				return cmdDict[command.lower()] #this approach makes sure all commands are lower case!
@@ -80,9 +105,17 @@ def VERIZON(command):
 
 			print(vzCmdCipher(command))
 
-			#IRSEND the command!
-			cleanedCmd = [vzCmdCipher(command)]
-			irsend.send_once(remote,cleanedCmd)
+			### this section will run the command x number of times if provided in the voice command
+			if any(char.isdigit() for char in command):
+				commandSplit = command.split()
+				for cmd in range(commandSplit[-1]):
+					cleanedCmd = [vzCmdCipher(command)]
+					irsend.send_once(remote,cleanedCmd)
+					sleep(.05)
+
+			else:
+				cleanedCmd = [vzCmdCipher(command)]
+				irsend.send_once(remote,cleanedCmd)
 
 		except:
 			print("Command not found!")
