@@ -12,10 +12,32 @@ def VERIZON(command):
 
 	elif command.find('channel') !=-1:
 		channelSplit = command.split()
-		for chan in channelSplit[1]:
-			irsend.send_once(remote, ['BTN_'+chan])
-			sleep(.05)
-		irsend.send_once(remote, ['ENTER_BTN'])
+
+			### change channel based on channel number in this section
+		if channelSplit[1].isdigit():
+			for chan in channelSplit[1]:
+				irsend.send_once(remote, ['BTN_'+chan])
+				sleep(.05)
+			irsend.send_once(remote, ['ENTER_BTN'])
+
+		else:
+			### change channels based on channel names in this section
+			try:
+				def chanCipher(command):
+					chanDict = {
+						"comedy":"690",
+						"hgtv":"665",
+					}
+
+					chanNameSplit = command.split()
+					chanName = chanNameSplit[1]
+
+					return chanDict[chanName.lower()]
+
+				for chan in chanCipher(command):
+					irsend.send_once(remote, ['BTN_'+chan])
+					sleep(.05)
+				irsend.send_once(remote, ['ENTER_BTN'])
 
 	else:
 		try:
