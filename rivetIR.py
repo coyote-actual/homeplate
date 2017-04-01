@@ -100,7 +100,11 @@ def VERIZON(command):
 					"enter button":"ENTER_BTN",
 				}
 
-				return cmdDict[command.lower()] #this approach makes sure all commands are lower case!
+				if any(char.isdigit() for char in command):
+					shaveDigit = command.split().remove(command.split()[-1])
+					return cmdDict[shaveDigit.lower()]
+				else:
+					return cmdDict[command.lower()]
 
 
 			print(vzCmdCipher(command))
