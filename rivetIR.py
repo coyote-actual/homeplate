@@ -115,9 +115,17 @@ def VERIZON(command):
 			print(vzCmdCipher(command))
 
 			### this section will run the command x number of times if provided in the voice command
-			cleanedCmd = [vzCmdCipher(command)]
-			irsend.send_once(remote,cleanedCmd)
-			print("IR command sent!")
+			if any(char.isdigit() for char in command):
+				for i in range(command.split()[-2]):
+					cleanedCmd = [vzCmdCipher(command)]
+					irsend.send_once(remote,cleanedCmd)
+					sleep(.050)
+					print("sent IR")
+
+			else:
+				cleanedCmd = [vzCmdCipher(command)]
+				irsend.send_once(remote,cleanedCmd)
+				print("IR command sent!")
 
 		except:
 			print("Command not found!")
