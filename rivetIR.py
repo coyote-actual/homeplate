@@ -102,6 +102,7 @@ def VERIZON(command):
 				}
 				print("this is command: "+command)
 				if any(char.isdigit() for char in command):
+					print("mayyyybbeeeee?")
 					shaveDigit = command.split().remove(command.split()[-1])
 					print("shaveDigit: "+shaveDigit)
 					return cmdDict[shaveDigit.lower()]
