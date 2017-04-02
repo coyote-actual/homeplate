@@ -114,7 +114,7 @@ def VERIZON(command):
 
 			print(vzCmdCipher(command))
 
-			### this section will run the command x number of times if provided in the voice command
+			### this section will run the command x number of times if provided in the voice command-------
 			if any(char.isdigit() for char in command):
 				#for i in range(int(command.split()[-2])):
 				for i in range(int(command.split()[-2])):
@@ -122,7 +122,8 @@ def VERIZON(command):
 					irsend.send_once(remote,cleanedCmd)
 					sleep(.3)
 					print("sent IR")
-
+			###---------------------------------------------------------------------------------------------
+			###THIS SECTION RUNS THE COMMANDS INDIVIDUALLY--------------------------------------------------
 			else:
 				cleanedCmd = [vzCmdCipher(command)]
 				irsend.send_once(remote,cleanedCmd)
