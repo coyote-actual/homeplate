@@ -120,7 +120,7 @@ def VERIZON(command):
 				for i in range(5):
 					cleanedCmd = [vzCmdCipher(command)]
 					irsend.send_once(remote,cleanedCmd)
-					sleep(.050)
+					sleep(.1)
 					print("sent IR")
 
 			else:
