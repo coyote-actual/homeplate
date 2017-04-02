@@ -100,33 +100,23 @@ def VERIZON(command):
 					"pip":"PIP_BTN",
 					"enter button":"ENTER_BTN",
 				}
-				print("this is command: "+command)
+				
 				if any(char.isdigit() for char in command):
-					print("mayyyybbeeeee?")
-					shaveDigit = command.split().remove(command.split()[-1])
-					print("shaveDigit: "+shaveDigit)
-					return cmdDict[shaveDigit.lower()]
+					commandList = command.split()
+					del commandList[-2::]
+					newCommand = " ".join(commandList)
+					print("this is returned with digits: "+newCommand)
+					return cmdDict[newCommand.lower()]
 				else:
-					print("nahhhhhhhh")
+					print("this is returned with no digits: "+command)
 					return cmdDict[command.lower()]
 
 
 			print(vzCmdCipher(command))
 
 			### this section will run the command x number of times if provided in the voice command
-			print("made it here0")
-			if any(char.isdigit() for char in command):
-				commandSplit = command.split()
-				print("made it here")
-				for cmd in range(commandSplit[-1]):
-					print("made it here2")
-					cleanedCmd = [vzCmdCipher(command)]
-					irsend.send_once(remote,cleanedCmd)
-					sleep(.05)
-
-			else:
-				cleanedCmd = [vzCmdCipher(command)]
-				irsend.send_once(remote,cleanedCmd)
+			cleanedCmd = [vzCmdCipher(command)]
+			irsend.send_once(remote,cleanedCmd)
 
 		except:
 			print("Command not found!")
