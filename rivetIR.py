@@ -28,7 +28,18 @@ def VERIZON(command):
 			try:
 				def chanCipher(command):
 					chanDict = {
+						"cbs":"502",
+						"nbc":"504",
+						"fox":"505",
+						"abc":"507",
+						"tbs":"552",
 						"comedy":"690",
+						"discovery":"620",
+						"science":"622",
+						"history":"628",
+						"food":"664",
+						"velocity":"631",
+						"cartoon":"757",
 						"hgtv":"665",
 					}
 
