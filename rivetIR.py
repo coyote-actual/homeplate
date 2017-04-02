@@ -7,9 +7,17 @@ def VERIZON(command):
 
 	remote = 'VERIZON_STB'
 
-	if command in ['on','off']:
+	### THIS SECTION CONTROLS POWER-------------------------------------------------------------------
+
+	if command in ['all on','all off']:
 		irsend.send_once(remote, ['TV_POWER'])
 		irsend.send_once(remote, ['STB_POWER'])
+
+	elif command.lower() in ['set top on','set top off', 'cable box on', 'cable box off']:
+		irsend.send_once(remote, ['STB_POWER'])
+
+	elif command.lower() in ['on','off']:
+		irsend.send_once(remote, ['TV_POWER'])
 
 	### THIS SECTION IS FOR CHANNEL CONTROL-----------------------------------------------------------
 
